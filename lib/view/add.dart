@@ -39,7 +39,9 @@ class AddAssetView extends GetView<AddAssetCont> {
   final listSatuan = ["PCS", "Meter", "Unit"];
   // bool validate = false;
 
-  final formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,19 +54,27 @@ class AddAssetView extends GetView<AddAssetCont> {
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: ListView(
-          key: formKey,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: TextFormField(
-                style: const TextStyle(color: Colors.white),
-                controller: controller.asetNameCont,
-                decoration: const InputDecoration(
-                  labelText: "Nama Aset",
-                  labelStyle: TextStyle(color: Colors.white),
-                  // errorText: validate? "Please fill Nama Asset" : null,
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
+            Form(
+              key: _formKey,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: TextFormField(
+                  style: const TextStyle(color: Colors.white),
+                  controller: controller.asetNameCont,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
+                  decoration: const InputDecoration(
+                    labelText: "Nama Aset",
+                    labelStyle: TextStyle(color: Colors.white),
+                    // errorText: validate? "Please fill Nama Asset" : null,
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
                   ),
                 ),
               ),
@@ -74,9 +84,15 @@ class AddAssetView extends GetView<AddAssetCont> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TextField(
+              child: TextFormField(
                 style: const TextStyle(color: Colors.white),
                 controller: controller.jumlahAsetCont,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+                },
                 decoration: const InputDecoration(
                   labelText: "Jumlah Aset",
                   labelStyle: TextStyle(color: Colors.white),
@@ -92,8 +108,14 @@ class AddAssetView extends GetView<AddAssetCont> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TextField(
+              child: TextFormField(
                 controller: controller.kategoriAsetCont,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+                },
                 style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
                   labelText: "Pilih Kategori Aset",
@@ -124,8 +146,14 @@ class AddAssetView extends GetView<AddAssetCont> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TextField(
+              child: TextFormField(
                 controller: controller.satuanAsetCont,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+                },
                 style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
                   labelText: "Pilih Satuan Aset",
@@ -156,8 +184,14 @@ class AddAssetView extends GetView<AddAssetCont> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TextField(
+              child: TextFormField(
                 controller: controller.jenisAsetCont,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+                },
                 style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
                   labelText: "Pilih Jenis Aset",
@@ -174,9 +208,9 @@ class AddAssetView extends GetView<AddAssetCont> {
                 Icons.arrow_drop_down,
                 color: Colors.white,
               ),
-              // onSelected: (String value) {
-              //   controller.jenisAsetCont.text = value;
-              // },
+              onSelected: (String value) {
+                controller.jenisAsetCont.text = value;
+              },
               itemBuilder: (BuildContext context) {
                 return listJenis.map<PopupMenuItem<String>>((String value) {
                   return PopupMenuItem(value: value, child: Text(value));
@@ -188,8 +222,14 @@ class AddAssetView extends GetView<AddAssetCont> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TextField(
+              child: TextFormField(
                 controller: controller.lokasiAsetCont,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+                },
                 style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
                   labelText: "Pilih Lokasi Aset",
@@ -220,9 +260,15 @@ class AddAssetView extends GetView<AddAssetCont> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TextField(
+              child: TextFormField(
                 style: const TextStyle(color: Colors.white),
                 controller: controller.catatanAsetCont,
+                // validator: (value) {
+                //   if (value == null || value.isEmpty) {
+                //     return 'Please enter some text';
+                //   }
+                //   return null;
+                // },
                 decoration: const InputDecoration(
                   labelText: "Catatan",
                   labelStyle: TextStyle(color: Colors.white),
@@ -240,15 +286,8 @@ class AddAssetView extends GetView<AddAssetCont> {
                 style: ElevatedButton.styleFrom(
                   primary: const Color.fromARGB(255, 47, 48, 128),
                 ),
-                onPressed: () => controller.addAsset(
-                    controller.asetNameCont.text,
-                    controller.jumlahAsetCont.text,
-                    controller.jenisAsetCont.text,
-                    controller.satuanAsetCont.text,
-                    controller.lokasiAsetCont.text,
-                    controller.kategoriAsetCont.text,
-                    controller.catatanAsetCont.text),
-                child: const Text("ADD ASET"),
+                onPressed: () => controller.submitButton(),
+                child: const Text("ADD ASSET"),
               ),
             ),
           ],

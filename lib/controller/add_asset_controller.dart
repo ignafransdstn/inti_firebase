@@ -19,6 +19,21 @@ class AddAssetCont extends GetxController {
 
   // AddAssetCont(TextEditingController asetNameCont);
 
+  void submitButton() {
+    if (_formKey.currentState!.validate()) {
+      addAsset(
+          asetNameCont.text,
+          jumlahAsetCont.text,
+          jenisAsetCont.text,
+          satuanAsetCont.text,
+          lokasiAsetCont.text,
+          kategoriAsetCont.text,
+          catatanAsetCont.text);
+    }
+  }
+
+  final _formKey = GlobalKey<FormState>();
+
   void addAsset(
     String asetName,
     String jumlahAset,
