@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "515365752042",
+    "project_id": "inti-warehouse-59fcb",
+    "storage_bucket": "inti-warehouse-59fcb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:515365752042:android:b3b7870d827b417d1b1b93",
+        "android_client_info": {
+          "package_name": "com.example.inti_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "515365752042-upbiojs3fob2rj13l1sp27v56a75675p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCD-eIxaE_zTbPFC5y0u10ke0TTS0IeESo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "515365752042-upbiojs3fob2rj13l1sp27v56a75675p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
