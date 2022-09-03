@@ -17,6 +17,8 @@ class AddAssetCont extends GetxController {
 
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
+  get selectedValue => null;
+
   // AddAssetCont(TextEditingController asetNameCont);
 
   
@@ -94,4 +96,38 @@ class AddAssetCont extends GetxController {
     catatanAsetCont.dispose();
     super.onClose();
   }
+  // String? selectedNewValue;
+
+  // var satuanAset = <String>['Unit', "PCS"];
+
+  // void onSelected(String value) {
+  //   selectedNewValue = value;
+
+  //   update();
+
+  //   if (kDebugMode) {
+  //     print(selectedValue);
+  //     changeSatuan(selectedValue);
+  //   }
+  // }
+
+  // changeSatuan(String? selectedSatuan) {
+  //   switch (selectedSatuan) {
+  //     case 'Unit':
+  //       Get.updateLocale(
+  //         const Locale('Unit'),
+  //       );
+  //       break;
+  //     case 'PCS':
+  //       Get.updateLocale(
+  //         const Locale('PCS'),
+  //       );
+  //       break;
+  //     default:
+  //       Get.updateLocale(
+  //         const Locale('Unit'),
+  //       );
+  //       break;
+  //   }
+  // }
 }
