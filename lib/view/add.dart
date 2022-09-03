@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:inti_firebase/controller/add_asset_controller.dart';
+// import 'package:inti_firebase/controller/widget_ddb_cont.dart';
 // import 'package:dropdown_search/dropdown_search.dart';
 // import 'package:inti_firebase/utils/kategori_dd_widget.dart';
 
@@ -54,7 +55,6 @@ class AddAssetView extends GetView<AddAssetCont> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,28 +70,28 @@ class AddAssetView extends GetView<AddAssetCont> {
           padding: const EdgeInsets.all(10.0),
           child: ListView(
             children: [
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: TextFormField(
-                    style: const TextStyle(color: Colors.white),
-                    controller: controller.asetNameCont,
-                    // validator: (value) => value!.isEmpty ? 'please enter some text' : null,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
-                    decoration: const InputDecoration(
-                      labelText: "Nama Aset",
-                      labelStyle: TextStyle(color: Colors.white),
-                      // errorText: validate? "Please fill Nama Asset" : null,
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
-                      ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: TextFormField(
+                  style: const TextStyle(color: Colors.white),
+                  controller: controller.asetNameCont,
+                  // validator: (value) => value!.isEmpty ? 'please enter some text' : null,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
+                  decoration: const InputDecoration(
+                    labelText: "Nama Aset",
+                    labelStyle: TextStyle(color: Colors.white),
+                    // errorText: validate? "Please fill Nama Asset" : null,
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
                     ),
                   ),
                 ),
+              ),
               const SizedBox(
                 height: 2,
               ),
@@ -151,7 +151,8 @@ class AddAssetView extends GetView<AddAssetCont> {
                   controller.kategoriAsetCont.text = value;
                 },
                 itemBuilder: (BuildContext context) {
-                  return listKategori.map<PopupMenuItem<String>>((String value) {
+                  return listKategori
+                      .map<PopupMenuItem<String>>((String value) {
                     return PopupMenuItem(value: value, child: Text(value));
                   }).toList();
                 },
