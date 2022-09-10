@@ -5,9 +5,8 @@ import 'package:get/get.dart';
 import 'package:inti_firebase/controller/routes_name.dart';
 import 'package:inti_firebase/controller/home_controller.dart';
 
-
 class HomeScreen extends GetView<HomeScreen> {
- HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
   final authCont = Get.find<AuthController>();
   final readCont = Get.put(HomeController());
   @override
@@ -15,7 +14,7 @@ class HomeScreen extends GetView<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("HOME"),
-        backgroundColor:const Color.fromARGB(255, 47, 48, 128),
+        backgroundColor: const Color.fromARGB(255, 47, 48, 128),
         centerTitle: true,
         actions: [
           IconButton(
@@ -33,11 +32,14 @@ class HomeScreen extends GetView<HomeScreen> {
             return ListView.builder(
               itemCount: listAllDocs.length,
               itemBuilder: (context, index) => ListTile(
-                onTap: () => Get.toNamed(Routes.edit_screen, arguments: listAllDocs[index].id),
+                onTap: () => Get.toNamed(Routes.edit_screen,
+                    arguments: listAllDocs[index].id),
                 title: Text(
-                    "${(listAllDocs[index].data() as Map<String, dynamic>)["aa_asetName"]}"),
+                  "${(listAllDocs[index].data() as Map<String, dynamic>)["aa_namaPerangkat"]}",
+                ),
                 subtitle: Text(
-                    "${(listAllDocs[index].data() as Map<String, dynamic>)["ac_jenisAset"]}"),
+                  "${(listAllDocs[index].data() as Map<String, dynamic>)["ac_merkPerangkat"]}",
+                ),
                 textColor: Colors.white,
                 trailing: IconButton(
                   onPressed: () => readCont.deleteAssets(listAllDocs[index].id),

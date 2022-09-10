@@ -6,60 +6,58 @@ import 'package:flutter/material.dart';
 // import 'package:dropdown_textfield/dropdown_textfield.dart';
 
 class AddAssetCont extends GetxController {
-  late TextEditingController asetNameCont;
-  late TextEditingController jumlahAsetCont;
-  late TextEditingController jenisAsetCont;
-  late TextEditingController satuanAsetCont;
-  late TextEditingController lokasiAsetCont;
-  // late SingleValueDropDownController lokasiAsetCont;
-  late TextEditingController kategoriAsetCont;
+  late TextEditingController namaPerangkatCont;
+  late TextEditingController posisiPerangkatCont;
+  late TextEditingController merkPerangkatCont;
+  late TextEditingController typePerangkatCont;
+  late TextEditingController serialNumberCont;
+  late TextEditingController nomerSertifikatCont;
+  late TextEditingController jenisPerangkatCont;
   late TextEditingController catatanAsetCont;
 
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   get selectedValue => null;
 
-  // AddAssetCont(TextEditingController asetNameCont);
-
-  
-
-  // final _formKey = GlobalKey<FormState>();
-
   void addAsset(
-    String asetName,
-    String jumlahAset,
-    String jenisAset,
-    String satuanAset,
-    String lokasiAset,
-    String kategoriAset,
+    String namaPerangkat,
+    String posisiPerangkat,
+    String merkPerangkat,
+    String typePerangkat,
+    String serialNumber,
+    String nomerSertifikat,
+    String jenisPerangkat,
     String catatanAset,
   ) async {
     CollectionReference assets = firestore.collection("assets");
     try {
       String dateNow = DateTime.now().toIso8601String();
       await assets.add({
-        "aa_asetName": asetName,
-        "ab_jumlahAset": jumlahAset,
-        "ac_jenisAset": jenisAset,
-        "ad_satuanAset": satuanAset,
-        "ae_lokasiAset": lokasiAset,
-        "af_kategoriAset": kategoriAset,
+        "aa_namaPerangkat": namaPerangkat,
+        "ab_posisiPerangkat": posisiPerangkat,
+        "ac_merkPerangkat": merkPerangkat,
+        "ad_typePerangkat": typePerangkat,
+        "ae_serialNumber": serialNumber,
+        "af_nomerSertifikat": nomerSertifikat,
         "ag_catatanAset": catatanAset,
-        "ah_time": dateNow
+        "ah_jenisPerangkat":jenisPerangkat,
+        "ai_time": dateNow
       });
       Get.defaultDialog(
           title: "Done",
           middleText: "Successfuly",
           onConfirm: () {
-            asetNameCont.clear();
-            jumlahAsetCont.clear();
-            jenisAsetCont.clear();
-            satuanAsetCont.clear();
-            lokasiAsetCont.clear();
-            kategoriAsetCont.clear();
+            namaPerangkatCont.clear();
+            posisiPerangkatCont.clear();
+            merkPerangkatCont.clear();
+            typePerangkatCont.clear();
+            serialNumberCont.clear();
+            nomerSertifikatCont.clear();
+            jenisPerangkatCont.clear();
             catatanAsetCont.clear();
             Get.back();
             Get.back();
+            // Get.back();
           },
           textConfirm: "OK");
     } catch (e) {
@@ -74,25 +72,26 @@ class AddAssetCont extends GetxController {
 
   @override
   void onInit() {
-    asetNameCont = TextEditingController();
-    jumlahAsetCont = TextEditingController();
-    jenisAsetCont = TextEditingController();
-    satuanAsetCont = TextEditingController();
-    lokasiAsetCont = TextEditingController();
-    // lokasiAsetCont = SingleValueDropDownController();
-    kategoriAsetCont = TextEditingController();
+    namaPerangkatCont = TextEditingController();
+    posisiPerangkatCont = TextEditingController();
+    merkPerangkatCont = TextEditingController();
+    typePerangkatCont = TextEditingController();
+    serialNumberCont = TextEditingController();
+    nomerSertifikatCont = TextEditingController();
+    jenisPerangkatCont = TextEditingController();
     catatanAsetCont = TextEditingController();
     super.onInit();
   }
 
   @override
   void onClose() {
-    asetNameCont.dispose();
-    jumlahAsetCont.dispose();
-    jenisAsetCont.dispose();
-    satuanAsetCont.dispose();
-    lokasiAsetCont.dispose();
-    kategoriAsetCont.dispose();
+    namaPerangkatCont.dispose();
+    posisiPerangkatCont.dispose();
+    merkPerangkatCont.dispose();
+    typePerangkatCont.dispose();
+    serialNumberCont.dispose();
+    nomerSertifikatCont.dispose();
+    jenisPerangkatCont.dispose();
     catatanAsetCont.dispose();
     super.onClose();
   }

@@ -5,6 +5,7 @@ import '../view/login.dart';
 import '../view/home.dart';
 import '../view/add.dart';
 import '../view/edit.dart';
+import '../view/menu_kategori.dart';
 
 class AppPage {
   AppPage._();
@@ -26,6 +27,10 @@ class AppPage {
     GetPage(
       name: Routes.edit_screen,
       page: () => EditAssetView(),
+    ),
+    GetPage(
+      name: Routes.menu_screen,
+      page: () => const MenuKategoriView(),
     ),
   ];
 }
