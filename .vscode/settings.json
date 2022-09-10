@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
     "cmake.sourceDirectory": "${workspaceFolder}/linux"
+=======
+    "cmake.sourceDirectory": "${workspaceFolder}/windows/flutter"
+>>>>>>> c5a6e2b6951fc1099416e5e2529d751cc4680bb0
 }

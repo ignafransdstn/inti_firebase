@@ -58,6 +58,30 @@ class EditAssetView extends GetView<EditAssetCont> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 10, right: 10),
+        child: FloatingActionButton(
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  title: const Text(
+                    "Add Serial Number",
+                    style: TextStyle(fontFamily: "Nunito"),
+                  ),
+                  content: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    // children: [
+
+                    // ],
+                  ),
+                );
+              },
+            );
+          },
+        ),
+      ),
       appBar: AppBar(
         title: const Text('EDIT ASSET'),
         centerTitle: true,
