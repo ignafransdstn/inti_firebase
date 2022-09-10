@@ -61,7 +61,7 @@ class HomeScreen extends GetView<HomeScreen> {
       //   ),
       // ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Get.toNamed(Routes.add_screen),
+        onPressed: () => Get.toNamed(Routes.menu_screen),
         backgroundColor: const Color.fromARGB(255, 47, 48, 128),
         child: const Icon(Icons.add_circle_outlined),
       ),
