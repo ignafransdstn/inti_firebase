@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controller/edit_asset_controller.dart';
-import '../controller/add_sn_controller.dart';
+// import '../controller/add_sn_controller.dart';
 // import 'package:dropdown_search/dropdown_search.dart';
 // import 'package:inti_firebase/utils/kategori_dd_widget.dart';
 
@@ -59,32 +59,6 @@ class EditAssetView extends GetView<EditAssetCont> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 10, right: 10),
-        child: FloatingActionButton(
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  title: const Text(
-                    "Add Serial Number",
-                    style: TextStyle(fontFamily: "Nunito"),
-                  ),
-                  content: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      
-                    ],
-                  ),
-                );
-              },
-            );
-          },
-          backgroundColor: const Color.fromARGB(255, 47, 48, 128),
-          child:  const Icon(Icons.add_circle_outlined),
-        ),
-      ),
       appBar: AppBar(
         title: const Text('EDIT ASSET'),
         centerTitle: true,

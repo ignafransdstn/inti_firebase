@@ -4,6 +4,7 @@ import 'package:inti_firebase/controller/add_asset_controller.dart';
 // import 'package:dropdown_search/dropdown_search.dart';
 // import 'package:inti_firebase/utils/kategori_dd_widget.dart';
 
+// ignore: must_be_immutable
 class AddAssetView extends GetView<AddAssetCont> {
   final addController = Get.put(AddAssetCont());
   // final String dropdownValue = 'Warehouse';
@@ -36,10 +37,13 @@ class AddAssetView extends GetView<AddAssetCont> {
     "Other"
   ];
 
-  final listSatuan = ["PCS", "Meter", "Unit"];
+  // final listSatuan = ["PCS", "Meter", "Unit"];
+  // ignore: prefer_typing_uninitialized_variables
+  var selectedSatuan;
+  List<String> listSatuan = <String>["PCS", "Meter", "Unit"];
   // bool validate = false;
 
-  final _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   void submitButton() {
     if (_formKey.currentState!.validate()) {
@@ -53,7 +57,6 @@ class AddAssetView extends GetView<AddAssetCont> {
           controller.catatanAsetCont.text);
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -70,28 +73,28 @@ class AddAssetView extends GetView<AddAssetCont> {
           padding: const EdgeInsets.all(10.0),
           child: ListView(
             children: [
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: TextFormField(
-                    style: const TextStyle(color: Colors.white),
-                    controller: controller.asetNameCont,
-                    // validator: (value) => value!.isEmpty ? 'please enter some text' : null,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
-                    decoration: const InputDecoration(
-                      labelText: "Nama Aset",
-                      labelStyle: TextStyle(color: Colors.white),
-                      // errorText: validate? "Please fill Nama Asset" : null,
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
-                      ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: TextFormField(
+                  style: const TextStyle(color: Colors.white),
+                  controller: controller.asetNameCont,
+                  // validator: (value) => value!.isEmpty ? 'please enter some text' : null,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
+                  decoration: const InputDecoration(
+                    labelText: "Nama Aset",
+                    labelStyle: TextStyle(color: Colors.white),
+                    // errorText: validate? "Please fill Nama Asset" : null,
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
                     ),
                   ),
                 ),
+              ),
               const SizedBox(
                 height: 2,
               ),
@@ -151,7 +154,8 @@ class AddAssetView extends GetView<AddAssetCont> {
                   controller.kategoriAsetCont.text = value;
                 },
                 itemBuilder: (BuildContext context) {
-                  return listKategori.map<PopupMenuItem<String>>((String value) {
+                  return listKategori
+                      .map<PopupMenuItem<String>>((String value) {
                     return PopupMenuItem(value: value, child: Text(value));
                   }).toList();
                 },
@@ -180,21 +184,34 @@ class AddAssetView extends GetView<AddAssetCont> {
                   ),
                 ),
               ),
-              PopupMenuButton<String>(
-                padding: const EdgeInsets.all(0.1),
-                icon: const Icon(
-                  Icons.arrow_drop_down,
-                  color: Colors.white,
-                ),
-                onSelected: (String value) {
-                  controller.satuanAsetCont.text = value;
-                },
-                itemBuilder: (BuildContext context) {
-                  return listSatuan.map<PopupMenuItem<String>>((String value) {
-                    return PopupMenuItem(value: value, child: Text(value));
-                  }).toList();
-                },
-              ),
+              DropdownButton(
+                  items: listSatuan.map(
+                    (value) => DropdownMenuItem(
+                      value: value,
+                      child: Text(
+                        value,
+                        style: const TextStyle(color: Color(0xff11b719)),
+                      ),
+                    )
+                  ).toList(),
+                  onChanged: (selectedSatuanValue) {
+                    
+                  }),
+              // PopupMenuButton<String>(
+              //   padding: const EdgeInsets.all(0.1),
+              //   icon: const Icon(
+              //     Icons.arrow_drop_down,
+              //     color: Colors.white,
+              //   ),
+              //   onSelected: (String value) {
+              //     controller.satuanAsetCont.text = value;
+              //   },
+              //   itemBuilder: (BuildContext context) {
+              //     return listSatuan.map<PopupMenuItem<String>>((String value) {
+              //       return PopupMenuItem(value: value, child: Text(value));
+              //     }).toList();
+              //   },
+              // ),
               const SizedBox(
                 height: 10,
               ),
