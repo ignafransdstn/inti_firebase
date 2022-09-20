@@ -310,7 +310,7 @@ class EditAssetView extends GetView<EditAssetCont> {
                     Center(
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            primary: const Color.fromARGB(255, 47, 48, 128)),
+                            backgroundColor: const Color.fromARGB(255, 47, 48, 128)),
                         onPressed: () => submitEditButton(),
                         child: const Text("UPDATE ASET"),
                       ),

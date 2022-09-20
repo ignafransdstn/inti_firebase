@@ -20,10 +20,26 @@ class AuthController extends GetxController {
         if (kDebugMode) {
           print('No user found for that email.');
         }
+        Get.defaultDialog(
+          title: "THE USER NOT FOUND",
+          middleText: "Please try another user name",
+          onConfirm: () {
+            Get.back();
+          },
+          textConfirm: "OK"
+        );
       } else if (e.code == 'wrong-password') {
         if (kDebugMode) {
           print('Wrong password provided for that user.');
         }
+        Get.defaultDialog(
+          title: "THE PASSWORD WRONG",
+          middleText: "Please try another password",
+          onConfirm: () {
+            Get.back();
+          },
+          textConfirm: "OK"
+        );
       }
     }
   }

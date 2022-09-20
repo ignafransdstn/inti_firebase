@@ -33,11 +33,11 @@ class HomeScreen extends GetView<HomeScreen> {
             return ListView.builder(
               itemCount: listAllDocs.length,
               itemBuilder: (context, index) => ListTile(
-                onTap: () => Get.toNamed(Routes.edit_screen, arguments: listAllDocs[index].id),
+                // onTap: () => Get.toNamed(Routes.edit_screen, arguments: listAllDocs[index].id),
                 title: Text(
-                    "${(listAllDocs[index].data() as Map<String, dynamic>)["aa_asetName"]}"),
+                    "${(listAllDocs[index].data() as Map<String, dynamic>)["aa_namaPerangkat"]}"),
                 subtitle: Text(
-                    "${(listAllDocs[index].data() as Map<String, dynamic>)["ac_jenisAset"]}"),
+                    "${(listAllDocs[index].data() as Map<String, dynamic>)["ab_serialNumber"]}"),
                 textColor: Colors.white,
                 trailing: IconButton(
                   onPressed: () => readCont.deleteAssets(listAllDocs[index].id),

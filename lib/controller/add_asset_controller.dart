@@ -6,13 +6,12 @@ import 'package:flutter/material.dart';
 // import 'package:dropdown_textfield/dropdown_textfield.dart';
 
 class AddAssetCont extends GetxController {
-  late TextEditingController asetNameCont;
-  late TextEditingController jumlahAsetCont;
-  late TextEditingController jenisAsetCont;
-  late TextEditingController satuanAsetCont;
-  late TextEditingController lokasiAsetCont;
-  // late SingleValueDropDownController lokasiAsetCont;
-  late TextEditingController kategoriAsetCont;
+  late TextEditingController namaPerangkatCont;
+  late TextEditingController serialNumberCont;
+  late TextEditingController nomerSertifikatCont;
+  late TextEditingController posisiPerangkatCont;
+  late TextEditingController typePerangkatCont;
+  late TextEditingController jenisPerangkatCont;
   late TextEditingController catatanAsetCont;
 
   FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -24,24 +23,24 @@ class AddAssetCont extends GetxController {
   // final _formKey = GlobalKey<FormState>();
 
   void addAsset(
-    String asetName,
-    String jumlahAset,
-    String jenisAset,
-    String satuanAset,
-    String lokasiAset,
-    String kategoriAset,
+    String namaPerangkat,
+    String serialNumber,
+    String nomerSertifikat,
+    String posisiPerangkat,
+    String typePerangkat,
+    String jenisPerangkat,
     String catatanAset,
   ) async {
     CollectionReference assets = firestore.collection("assets");
     try {
       String dateNow = DateTime.now().toIso8601String();
       await assets.add({
-        "aa_asetName": asetName,
-        "ab_jumlahAset": jumlahAset,
-        "ac_jenisAset": jenisAset,
-        "ad_satuanAset": satuanAset,
-        "ae_lokasiAset": lokasiAset,
-        "af_kategoriAset": kategoriAset,
+        "aa_namaPerangkat": namaPerangkat,
+        "ab_serialNumber": serialNumber,
+        "ac_satuanAset": nomerSertifikat,
+        "ad_posisiPerangkat": posisiPerangkat,
+        "ae_typePerangkat": typePerangkat,
+        "af_jenisPerangkat": jenisPerangkat,
         "ag_catatanAset": catatanAset,
         "ah_time": dateNow
       });
@@ -49,12 +48,12 @@ class AddAssetCont extends GetxController {
           title: "Done",
           middleText: "Successfuly",
           onConfirm: () {
-            asetNameCont.clear();
-            jumlahAsetCont.clear();
-            jenisAsetCont.clear();
-            satuanAsetCont.clear();
-            lokasiAsetCont.clear();
-            kategoriAsetCont.clear();
+            namaPerangkatCont.clear();
+            serialNumberCont.clear();
+            nomerSertifikatCont.clear();
+            posisiPerangkatCont.clear();
+            typePerangkatCont.clear();
+            jenisPerangkatCont.clear();
             catatanAsetCont.clear();
             Get.back();
             Get.back();
@@ -72,25 +71,25 @@ class AddAssetCont extends GetxController {
 
   @override
   void onInit() {
-    asetNameCont = TextEditingController();
-    jumlahAsetCont = TextEditingController();
-    jenisAsetCont = TextEditingController();
-    satuanAsetCont = TextEditingController();
-    lokasiAsetCont = TextEditingController();
-    // lokasiAsetCont = SingleValueDropDownController();
-    kategoriAsetCont = TextEditingController();
+    namaPerangkatCont = TextEditingController();
+    
+    serialNumberCont = TextEditingController();
+    nomerSertifikatCont = TextEditingController();
+    posisiPerangkatCont = TextEditingController();
+    typePerangkatCont = TextEditingController();
+    jenisPerangkatCont = TextEditingController();
     catatanAsetCont = TextEditingController();
     super.onInit();
   }
 
   @override
   void onClose() {
-    asetNameCont.dispose();
-    jumlahAsetCont.dispose();
-    jenisAsetCont.dispose();
-    satuanAsetCont.dispose();
-    lokasiAsetCont.dispose();
-    kategoriAsetCont.dispose();
+    namaPerangkatCont.dispose();
+    serialNumberCont.dispose();
+    nomerSertifikatCont.dispose();
+    posisiPerangkatCont.dispose();
+    typePerangkatCont.dispose();
+    jenisPerangkatCont.dispose();
     catatanAsetCont.dispose();
     super.onClose();
   }
