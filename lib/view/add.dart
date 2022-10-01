@@ -76,10 +76,11 @@ final listJenis = ["Handheld", "Mobile Unit", "Base Station", "Other"];
           padding: const EdgeInsets.all(10.0),
           child: ListView(
             children: [
-              // ----->> Test baru
+              // ----->> Nama Perangkat
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: TextFormField(
+                  textCapitalization: TextCapitalization.characters,
                   style: const TextStyle(color: Colors.white),
                   controller: controller.namaPerangkatCont,
                   validator: (value) {
@@ -91,7 +92,6 @@ final listJenis = ["Handheld", "Mobile Unit", "Base Station", "Other"];
                   decoration: InputDecoration(
                     labelText: "Nama Perangkat",
                     labelStyle: const TextStyle(color: Colors.white),
-                    // errorText: validate? "Please fill Nama Asset" : null,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
@@ -101,10 +101,11 @@ final listJenis = ["Handheld", "Mobile Unit", "Base Station", "Other"];
               const SizedBox(
                 height: 10,
               ),
-              // ----->> Test baru
+              // ----->> Serial Number
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  textCapitalization: TextCapitalization.characters,
                   controller: controller.serialNumberCont,
                   // validator: (value) => value!.isEmpty ? 'please enter some text' : null,
                   validator: (value) {
@@ -126,12 +127,12 @@ final listJenis = ["Handheld", "Mobile Unit", "Base Station", "Other"];
               const SizedBox(
                 height: 10,
               ),
-              // ----->> Test baru
+              // ----->> Nomer Sertifikat
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  textCapitalization: TextCapitalization.characters,
                   controller: controller.nomerSertifikatCont,
-                  // validator: (value) => value!.isEmpty ? 'please enter some text' : null,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Please enter some text';
@@ -151,12 +152,12 @@ final listJenis = ["Handheld", "Mobile Unit", "Base Station", "Other"];
               const SizedBox(
                 height: 10,
               ),
-              // ----->> Test baru
+              // ----->> Posisi Perangkat
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  textCapitalization: TextCapitalization.characters,
                   controller: controller.posisiPerangkatCont,
-                  // validator: (value) => value!.isEmpty ? 'please enter some text' : null,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Please enter some text';
@@ -195,12 +196,12 @@ final listJenis = ["Handheld", "Mobile Unit", "Base Station", "Other"];
               const SizedBox(
                 height: 10,
               ),
-              // ----->> Test baru
+              // ----->> Tipe Perangkat
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  textCapitalization: TextCapitalization.characters,
                   controller: controller.typePerangkatCont,
-                  // validator: (value) => value!.isEmpty ? 'please enter some text' : null,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Please enter some text';
@@ -239,12 +240,12 @@ final listJenis = ["Handheld", "Mobile Unit", "Base Station", "Other"];
               const SizedBox(
                 height: 10,
               ),
-              // ----->> Test baru
+              // ----->> Jenis Perangkat
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  textCapitalization: TextCapitalization.characters,
                   controller: controller.jenisPerangkatCont,
-                  // validator: (value) => value!.isEmpty ? 'please enter some text' : null,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Please enter some text';
@@ -283,18 +284,13 @@ final listJenis = ["Handheld", "Mobile Unit", "Base Station", "Other"];
               const SizedBox(
                 height: 10,
               ),
-              // ----->> Test baru
+              // ----->> Catatan
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  textCapitalization: TextCapitalization.characters,
                   style: const TextStyle(color: Colors.white),
                   controller: controller.catatanAsetCont,
-                  // validator: (value) {
-                  //   if (value == null || value.isEmpty) {
-                  //     return 'Please enter some text';
-                  //   }
-                  //   return null;
-                  // },
                   decoration: InputDecoration(
                     labelText: "Catatan",
                     labelStyle: const TextStyle(color: Colors.white),
