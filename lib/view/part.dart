@@ -87,6 +87,7 @@ class AddPartView extends GetView<AddPartCont> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  textCapitalization: TextCapitalization.characters,
                   style: const TextStyle(color: Colors.white),
                   controller: controller.lokasiPartCont,
                   validator: (value) {
@@ -157,16 +158,11 @@ class AddPartView extends GetView<AddPartCont> {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: TextFormField(
+                  textCapitalization: TextCapitalization.characters,
                   style: const TextStyle(
                     color: Colors.white,
                   ),
                   controller: controller.catatanPartCont,
-                  // validator: (value) {
-                  //   if (value!.isEmpty) {
-                  //     return 'Please enter some text';
-                  //   }
-                  //   return null;
-                  // },
                   decoration: InputDecoration(
                     labelText: "Catatan",
                     labelStyle: const TextStyle(
