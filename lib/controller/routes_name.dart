@@ -5,4 +5,6 @@ abstract class Routes {
   static const home_screen = '/home';
   static const add_screen = '/add';
   static const edit_screen = '/edit';
+  static const menu_screen = '/kategori';
+  static const add_part_screen = '/part';
 }

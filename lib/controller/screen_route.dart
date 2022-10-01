@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 // import 'package:inti_firebase/binding/login_binding.dart';
 import 'package:inti_firebase/controller/routes_name.dart';
+import 'package:inti_firebase/view/kategori.dart';
+import 'package:inti_firebase/view/part.dart';
 import '../view/login.dart';
 import '../view/home.dart';
 import '../view/add.dart';
@@ -26,6 +28,14 @@ class AppPage {
     GetPage(
       name: Routes.edit_screen,
       page: () => EditAssetView(),
+    ),
+    GetPage(
+      name: Routes.menu_screen,
+      page: () => const KategoriView(),
+    ),
+    GetPage(
+      name: Routes.add_part_screen,
+      page: () => AddPartView(),
     ),
   ];
 }
