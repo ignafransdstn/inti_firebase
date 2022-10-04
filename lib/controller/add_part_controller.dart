@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:inti_firebase/controller/routes_name.dart';
 
 class AddPartCont extends GetxController {
   late TextEditingController namaPartCont;
@@ -36,7 +37,7 @@ class AddPartCont extends GetxController {
           lokasiPartCont.clear();
           jumlahPartCont.clear();
           catatanPartCont.clear();
-          Get.back();
+          Get.toNamed(Routes.list_part_screen);
         },
         textConfirm: "OK",
       );

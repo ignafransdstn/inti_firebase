@@ -7,4 +7,5 @@ abstract class Routes {
   static const edit_screen = '/edit';
   static const menu_screen = '/kategori';
   static const add_part_screen = '/part';
+  static const list_part_screen = '/list_part';
 }

@@ -51,13 +51,6 @@ class HomeScreen extends GetView<HomeScreen> {
           );
         },
       ),
-      // body: ListView.builder(
-      //   itemCount: 7,
-      //   itemBuilder: (context, index) => const ListTile(
-      //     title: Text("List Aset"),
-      //     textColor: Colors.white,
-      //   ),
-      // ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Get.toNamed(Routes.menu_screen),
         backgroundColor: const Color.fromARGB(255, 47, 48, 128),
