@@ -33,7 +33,6 @@ class HomeScreen extends GetView<HomeScreen> {
             return ListView.builder(
               itemCount: listAllDocs.length,
               itemBuilder: (context, index) => ListTile(
-                // onTap: () => Get.toNamed(Routes.edit_screen, arguments: listAllDocs[index].id),
                 title: Text(
                     "${(listAllDocs[index].data() as Map<String, dynamic>)["aa_namaPerangkat"]}"),
                 subtitle: Text(

@@ -58,7 +58,7 @@ class KategoriView extends GetView<KategoriView> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         IconButton(
-                          onPressed: () => Get.toNamed(Routes.add_part_screen),
+                          onPressed: () => Get.toNamed(Routes.list_part_screen),
                           icon: const FaIcon(FontAwesomeIcons.whmcs),
                           iconSize: 50,
                           color: Colors.white,

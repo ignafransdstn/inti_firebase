@@ -2,7 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:inti_firebase/controller/list_part_controller.dart';
-import 'package:inti_firebase/view/part.dart';
+import 'package:inti_firebase/controller/routes_name.dart';
+// import 'package:inti_firebase/view/part.dart';
 
 class ListPartScreen extends GetView<ListPartScreen> {
   ListPartScreen({Key? key}) : super(key: key);
@@ -15,17 +16,17 @@ class ListPartScreen extends GetView<ListPartScreen> {
         title: const Text("LIST PART"),
         backgroundColor: const Color.fromARGB(255, 47, 48, 128),
         centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => AddPartView(),
-              ),
-            );
-          },
-        ),
+        // leading: IconButton(
+        //   icon: const Icon(Icons.arrow_back),
+        //   onPressed: () {
+        //     Navigator.push(
+        //       context,
+        //       MaterialPageRoute(
+        //         builder: (context) => AddPartView(),
+        //       ),
+        //     );
+        //   },
+        // ),
       ),
       backgroundColor: const Color.fromARGB(255, 98, 99, 194),
       body: StreamBuilder<QuerySnapshot<Object?>>(
@@ -48,6 +49,11 @@ class ListPartScreen extends GetView<ListPartScreen> {
             child: CircularProgressIndicator(),
           );
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed:() => Get.toNamed(Routes.add_part_screen),
+        backgroundColor: const Color.fromARGB(255, 47, 48, 128),
+        child: const Icon(Icons.add_circle_outlined),
       ),
     );
   }
