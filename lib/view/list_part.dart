@@ -42,6 +42,10 @@ class ListPartScreen extends GetView<ListPartScreen> {
                 subtitle: Text(
                     "${(listAllDocs[index].data() as Map<String, dynamic>)["bc_jumlahPart"]}"),
                 textColor: Colors.white,
+                trailing:  IconButton(
+                  onPressed: () => readCont.deleteParts(listAllDocs[index].id),
+                  icon: const Icon(Icons.delete_forever_rounded),
+                ),
               ),
             );
           }
